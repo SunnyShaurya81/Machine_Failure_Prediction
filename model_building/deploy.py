@@ -10,7 +10,7 @@ files = ["app.py", "requirements.txt", "Dockerfile"]
 
 for file in files:
     api.upload_file(
-        path_or_fileobj=file,
+        path_or_fileobj=os.path.join(ROOT_DIR, file),
         path_in_repo=file,
         repo_id=SPACE_ID,
         repo_type="space",
