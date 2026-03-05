@@ -6,7 +6,7 @@ SPACE_ID = "SunnyShaurya1981/engine-predictive-maintenance-app"
 
 api = HfApi(token=HF_TOKEN)
 
-files = ["model_building/app.py", "model_building/requirements.txt", "model_building/Dockerfile"]
+files = ["app.py", "requirements.txt", "Dockerfile"]
 
 for file in files:
     api.upload_file(
