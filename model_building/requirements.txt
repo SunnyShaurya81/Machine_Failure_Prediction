@@ -1,8 +1,9 @@
 streamlit
+huggingface_hub
+joblib
+scikit-learn
+# xgboost # Uncomment if you used XGBoost model
 pandas
 numpy
-scikit-learn
-xgboost
-joblib
-huggingface_hub
 dill
+matplotlib
