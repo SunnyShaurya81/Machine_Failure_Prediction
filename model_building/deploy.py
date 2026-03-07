@@ -1,13 +1,17 @@
+
+# ---------------Import Required Libraries--------------
 from huggingface_hub import HfApi, create_repo
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 import os
 
+# --------------Define the Hugging Face Space-----------
 SPACE_REPO_ID = "SunnyShaurya1981/engine-predictive-maintenance-app"
 SPACE_REPO_TYPE = "space"
 
-# Correct deployment directory
+# --------------Correct deployment directory------------
 LOCAL_DEPLOY_DIR = "../deployment"
 
+# --------------Files to Upload------------------------
 DEPLOY_FILES = [
     "app.py",
     "requirements.txt",

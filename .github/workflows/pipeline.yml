@@ -11,46 +11,41 @@ jobs:
 
     steps:
 
-    # 1 Checkout Repository
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      # 1 Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    # 2 Setup Python
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      # 2 Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    # 3 Upgrade pip
-    - name: Upgrade pip
-      run: python -m pip install --upgrade pip
+      # 3 Upgrade pip
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
 
-    # 4 Install dependencies
-    - name: Install dependencies
-      run: |
-        pip install pandas
-        pip install numpy
-        pip install scikit-learn
-        pip install joblib
-        pip install datasets
-        pip install huggingface_hub
+      # 4 Install dependencies from requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r deployment/requirements.txt
 
-    # 5 Debug repository structure (VERY IMPORTANT)
-    - name: Show repository structure
-      run: |
-        echo "Repository files:"
-        ls -R
+      # 5 Show repository structure (debug step)
+      - name: Show repository structure
+        run: |
+          echo "Repository structure:"
+          ls -R
 
-    # 6 Run Model Training
-    - name: Train and Evaluate Model
-      run: |
-        python model_building/model_build_eval.py
-      env:
-        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      # 6 Train and evaluate model
+      - name: Train and Evaluate Model
+        run: |
+          python model_building/model_build_eval.py
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
-    # 7 Deploy Streamlit App to Hugging Face
-    - name: Deploy Streamlit App
-      run: |
-        python model_building/deploy.py
-      env:
-        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      # 7 Deploy Streamlit App to Hugging Face
+      - name: Deploy Streamlit App
+        run: |
+          python model_building/deploy.py
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}

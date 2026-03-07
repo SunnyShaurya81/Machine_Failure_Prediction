@@ -1,9 +1,0 @@
-streamlit
-huggingface_hub
-joblib
-scikit-learn
-# xgboost # Uncomment if you used XGBoost model
-pandas
-numpy
-dill
-matplotlib
