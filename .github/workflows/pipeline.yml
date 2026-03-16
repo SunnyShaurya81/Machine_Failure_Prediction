@@ -2,8 +2,8 @@ name: MLOps Pipeline
 
 on:
   push:
-    branches:
-      - main
+   # branches:
+     # - main
 
 jobs:
   build-train-deploy:
