@@ -9,7 +9,8 @@ SPACE_REPO_ID = "SunnyShaurya1981/engine-predictive-maintenance-app"
 SPACE_REPO_TYPE = "space"
 
 # --------------Correct deployment directory------------
-LOCAL_DEPLOY_DIR = "../deployment"
+#LOCAL_DEPLOY_DIR = "../deployment"
+LOCAL_DEPLOY_DIR = "deployment"
 
 # --------------Files to Upload------------------------
 DEPLOY_FILES = [
